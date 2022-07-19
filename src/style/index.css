@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    min-height: 100vh;
+  }
+}
+
+.ut-animation {
+  @apply transition-all duration-200;
+}
+
+.pointer {
+  @apply relative after:absolute after:top-0 after:left-[50%] after:w-5 after:h-5 after:bg-primary
+  after:-translate-y-[50%] after:-translate-x-[50%] after:rotate-45;
+}
