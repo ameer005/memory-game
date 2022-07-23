@@ -1,8 +1,34 @@
-import * as React from "react";
+import React, { FC, useState, useEffect } from "react";
 
-interface Footer {}
+interface FooterProps {
+  moves: number;
+  setTime: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Footer: React.FC<Footer> = (props) => {
+const Footer: FC<FooterProps> = ({ moves, setTime }) => {
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+
+  let timer: NodeJS.Timer;
+
+  // useEffect(() => {
+  //   timer = setInterval(() => {
+  //     setSeconds((prev) => prev + 1);
+
+  //     if (seconds === 59) {
+  //       setMinutes((prev) => prev + 1);
+  //       setSeconds(0);
+  //     }
+  //   }, 1000);
+
+  //   setTime(
+  //     `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+  //   );
+
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // });
   return (
     <main className="flex items-center gap-7">
       <div className="flex-1 flex items-center justify-between bg-customGrey2/40 px-4 py-5 rounded-lg">
@@ -11,7 +37,7 @@ const Footer: React.FC<Footer> = (props) => {
       </div>
       <div className="flex-1 px-4 py-5 flex items-center justify-between bg-primary text-neutral2  rounded-lg pointer">
         <div>Moves</div>
-        <div className="font-bold">05</div>
+        <div className="font-bold">{String(moves).padStart(2, "0")}</div>
       </div>
     </main>
   );
