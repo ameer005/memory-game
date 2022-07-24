@@ -9,17 +9,19 @@ const Header: React.FC<HeaderProps> = ({ restartGame, setGameOn }) => {
   return (
     <main className="w-full max-w-[75rem]">
       <section className="flex justify-between items-center">
-        <h1 className="text-secondary font-bold text-4xl">memory</h1>
-        <div className="flex items-center gap-5">
+        <h1 className="text-secondary font-bold text-4xl md:text-3xl">
+          memory
+        </h1>
+        <div className="flex items-center gap-5 md:gap-2">
           <button
             onClick={() => restartGame()}
-            className="bg-customGrey2/40 text-neutral2 font-bold bg-primary py-[10px] rounded-full w-[7rem] hover:bg-primaryLight ut-animation"
+            className="bg-customGrey2/40 md:text-xs text-neutral2 font-bold bg-primary py-[10px] md:py-2 rounded-full w-[7rem] md:w-[6rem] hover:bg-primaryLight ut-animation"
           >
             Restart
           </button>
           <button
             onClick={() => setGameOn(false)}
-            className="text-secondary font-bold bg-customGrey2/40 py-[10px] rounded-full w-[7rem] hover:bg-customBlue hover:text-neutral2 ut-animation"
+            className="text-secondary md:text-xs font-bold bg-customGrey2/40 py-[10px] md:py-2 rounded-full w-[7rem] md:w-[6rem] hover:bg-customBlue hover:text-neutral2 ut-animation"
           >
             New Game
           </button>

@@ -2,6 +2,17 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    screens: {
+      "2xl": { max: "1535px" },
+
+      xl: { max: "1279px" },
+
+      lg: { max: "700px" },
+
+      md: { max: "450px" },
+
+      sm: { max: "300px" },
+    },
     extend: {
       colors: {
         primary: "rgb(253, 162, 20)",

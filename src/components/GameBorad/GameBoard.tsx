@@ -6,21 +6,31 @@ import Footer from "../Footer/Footer";
 import GameBoardBody from "../GameBoardBody/GameBoardBody";
 import ModalGameOver from "../ModalGameOver/ModalGameOver";
 
-import { fourByFour } from "../../utils/boardArray";
+import { fourByFour, sixBysix } from "../../utils/boardArray";
 
 interface GameBoard {
   gameOn: boolean;
   setGameOn: React.Dispatch<React.SetStateAction<boolean>>;
+  gridsize: number;
 }
 
-const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn }) => {
-  const [board, setBord] = React.useState([...fourByFour, ...fourByFour]);
+const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn, gridsize }) => {
+  const [board, setBord] = React.useState<number[]>([
+    ...fourByFour,
+    ...fourByFour,
+  ]);
   const [activeCards, setActiveCards] = useState<number[]>([]);
   const [foundPairs, setFoundPairs] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-
   const [time, setTime] = useState("");
+
+  console.log(gameOn);
+
+  useEffect(() => {
+    if (gridsize === 4) setBord([...fourByFour, ...fourByFour]);
+    else setBord([...sixBysix, ...sixBysix]);
+  }, []);
 
   // game over logic
   useEffect(() => {
@@ -64,20 +74,25 @@ const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn }) => {
   };
 
   return (
-    <main className="flex flex-col gap-16 min-h-screen bg-neutral2  justify-start items-center py-5">
+    <main className="flex flex-col justify-between min-h-screen bg-neutral2  items-center py-5 lg:py-7 mx-7">
       <Header restartGame={restartGame} setGameOn={setGameOn} />
-      <section>
-        <GameBoardBody
-          revealValue={revealValue}
-          foundPairs={foundPairs}
-          activeCards={activeCards}
-          board={board}
-        />
-        <Footer setTime={setTime} moves={moves} />
-      </section>
+
+      <GameBoardBody
+        revealValue={revealValue}
+        foundPairs={foundPairs}
+        activeCards={activeCards}
+        board={board}
+        gridsize={gridsize}
+      />
+      <Footer setTime={setTime} moves={moves} />
 
       {gameOver && (
-        <ModalGameOver time={time} restartGame={restartGame} moves={moves} />
+        <ModalGameOver
+          setGameOn={setGameOn}
+          time={time}
+          restartGame={restartGame}
+          moves={moves}
+        />
       )}
     </main>
   );

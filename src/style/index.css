@@ -16,7 +16,7 @@
     font-family: "Atkinson Hyperlegible", sans-serif;
     font-weight: 400;
     line-height: 1;
-    min-height: 100vh;
+    height: 100vh;
   }
 }
 
@@ -27,4 +27,18 @@
 .pointer {
   @apply relative after:absolute after:top-0 after:left-[50%] after:w-5 after:h-5 after:bg-primary
   after:-translate-y-[50%] after:-translate-x-[50%] after:rotate-45;
+}
+
+/* 700px */
+@media only screen and (max-width: 44em) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+/* 450 */
+@media only screen and (max-width: 28em) {
+  html {
+    font-size: 81.25%;
+  }
 }
