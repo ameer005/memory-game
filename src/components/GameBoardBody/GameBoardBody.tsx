@@ -20,7 +20,11 @@ const GameBoardBody: React.FC<GameBoardBodyProps> = ({
       if (gridsize === 4) {
         return (
           <div
-            onClick={() => revealValue(index)}
+            onClick={() => {
+              if (!activeCards.includes(index)) {
+                revealValue(index);
+              }
+            }}
             key={index}
             className={`flex justify-center items-center h-24 w-24 md:h-20 md:w-20  ${
               foundPairs.includes(index)
@@ -40,7 +44,11 @@ const GameBoardBody: React.FC<GameBoardBodyProps> = ({
       } else {
         return (
           <div
-            onClick={() => revealValue(index)}
+            onClick={() => {
+              if (!activeCards.includes(index)) {
+                revealValue(index);
+              }
+            }}
             key={index}
             className={`flex justify-center items-center h-16 w-16 md:h-14 md:w-14  ${
               foundPairs.includes(index)
