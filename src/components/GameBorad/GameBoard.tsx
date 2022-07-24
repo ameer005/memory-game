@@ -24,8 +24,6 @@ const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn, gridsize }) => {
   const [gameOver, setGameOver] = useState(false);
   const [time, setTime] = useState("");
 
-  console.log(gameOn);
-
   useEffect(() => {
     if (gridsize === 4) setBord(_.shuffle([...fourByFour, ...fourByFour]));
     else setBord(_.shuffle([...sixBysix, ...sixBysix]));
@@ -40,6 +38,8 @@ const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn, gridsize }) => {
 
   // card matching logic
   const revealValue = (index: number): void => {
+    let timeout;
+
     if (activeCards.length === 0) {
       setActiveCards([index]);
     }
@@ -55,9 +55,9 @@ const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn, gridsize }) => {
       setMoves((prev) => prev + 1);
 
       // removing indexes from active card after 500ms
-      // const timeout = setTimeout(() => {
-      //   setActiveCards([]);
-      // }, 500);
+      timeout = setTimeout(() => {
+        setActiveCards([]);
+      }, 500);
     }
 
     if (activeCards.length === 2) {
