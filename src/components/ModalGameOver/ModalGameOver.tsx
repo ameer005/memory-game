@@ -32,14 +32,14 @@ const ModalGameOver: React.FC<ModalGameOver> = ({
 
         {/* section stats */}
         <section className="flex flex-col gap-5 mb-10">
-          <div className="flex items-center justify-between bg-customGrey2/40 px-8 py-5 font-bold rounded-lg">
+          {/* <div className="flex items-center justify-between bg-customGrey2/40 px-8 py-5 font-bold rounded-lg">
             <div className="text-xl md:text-base text-customBlue2">
               Time Elapsed
             </div>
             <div className="text-3xl md:text-xl text-secondaryLight">
               {time}
             </div>
-          </div>
+          </div> */}
           <div className="flex items-center justify-between bg-customGrey2/40 px-8 py-5 font-bold rounded-lg">
             <div className="text-xl md:text-base text-customBlue2">
               Moves Taken

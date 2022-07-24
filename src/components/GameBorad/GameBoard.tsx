@@ -15,10 +15,9 @@ interface GameBoard {
 }
 
 const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn, gridsize }) => {
-  const [board, setBord] = React.useState<number[]>([
-    ...fourByFour,
-    ...fourByFour,
-  ]);
+  const [board, setBord] = React.useState<number[]>(
+    _.shuffle([...fourByFour, ...fourByFour])
+  );
   const [activeCards, setActiveCards] = useState<number[]>([]);
   const [foundPairs, setFoundPairs] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
@@ -28,8 +27,8 @@ const GameBoard: FC<GameBoard> = ({ gameOn, setGameOn, gridsize }) => {
   console.log(gameOn);
 
   useEffect(() => {
-    if (gridsize === 4) setBord([...fourByFour, ...fourByFour]);
-    else setBord([...sixBysix, ...sixBysix]);
+    if (gridsize === 4) setBord(_.shuffle([...fourByFour, ...fourByFour]));
+    else setBord(_.shuffle([...sixBysix, ...sixBysix]));
   }, []);
 
   // game over logic
