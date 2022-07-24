@@ -15,13 +15,13 @@ const Header: React.FC<HeaderProps> = ({ restartGame, setGameOn }) => {
         <div className="flex items-center gap-5 md:gap-2">
           <button
             onClick={() => restartGame()}
-            className="bg-customGrey2/40 md:text-xs text-neutral2 font-bold bg-primary py-[10px] md:py-2 rounded-full w-[7rem] md:w-[6rem] hover:bg-primaryLight ut-animation"
+            className="bg-customGrey2/40 md:text-sm text-neutral2 font-bold bg-primary py-[10px] md:py-2 rounded-full w-[7rem] md:w-[6rem] hover:bg-primaryLight ut-animation"
           >
             Restart
           </button>
           <button
             onClick={() => setGameOn(false)}
-            className="text-secondary md:text-xs font-bold bg-customGrey2/40 py-[10px] md:py-2 rounded-full w-[7rem] md:w-[6rem] hover:bg-customBlue hover:text-neutral2 ut-animation"
+            className="text-secondary md:text-sm font-bold bg-customGrey2/40 py-[10px] md:py-2 rounded-full w-[7rem] md:w-[6rem] hover:bg-customBlue hover:text-neutral2 ut-animation"
           >
             New Game
           </button>

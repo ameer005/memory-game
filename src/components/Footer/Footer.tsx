@@ -19,7 +19,7 @@ const Footer: FC<FooterProps> = ({ moves, setTime }) => {
         <div className="text-customBlue2">Time</div>
         <div className="text-secondary font-bold">09:51</div>
       </div> */}
-      <div className="flex-1 px-4 py-5 flex items-center justify-between bg-primary text-neutral2  rounded-lg pointer">
+      <div className="flex-1 px-4 py-5 flex items-center justify-between bg-primary text-neutral2  rounded-lg pointer md:text-base">
         <div>Moves</div>
         <div className="font-bold">{String(moves).padStart(2, "0")}</div>
       </div>
